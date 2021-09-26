@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/chat.css">
+    <script src="/socket.io/socket.io.js"></script>    
+
+</head>
+<script>
+
+</script>
+
+<body>
+    <div id="topbar"></div>
+    <div class='mainbody'>
+        <div id="sidebar">
+            <input class="sidebar_search" type="text" placeholder="Find or Start a Conversation">
+            <div id="recentchats">
+                <div class="sidebar-chat-item" onmouseover="this.lastElementChild.style.opacity ='100%'"
+                    onmouseleave="this.lastElementChild.style.opacity ='0'" v-for="(contact,i) in recents">
+                    <img :src="recents[i].pfp" :alt="recents[i].altpfp">
+                    <p>{{recents[i].name}}</p>
+                    <i class="material-icons" style="font-size:24px">close</i>
+                </div>
+            </div>
+            <div class="sidebarmenu" id="usersettings">
+                <img :src="user.pfp" :alt="user.altpfp">
+                <div class='username'>{{user.name}}</div>
+            </div>
+        </div>
+        <div class='mainchat' id='mainchat'>
+            <div class='chatwindow' id="chatwindow">
+                <div :class="{ trailingmsg: message.trailingmsg, message:!message.trailingmsg }"
+                    v-for="(message,i) in chat">
+                    <img @load="checktrail" v-if="!message.trailingmsg" :src="message.pfp" :alt="message.altpfp">
+                    <div>
+                        <p @load="checktrail" v-if="!message.trailingmsg" class="msgname">{{message.name}}</p>
+                        <div v-if="message.trailingmsg"> </div>
+                        <p class="msg">
+                            </>{{message.msg}}</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class='chatinpt'>
+                <form @submit.prevent="sendmsg()">
+                    <svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="15" cy="15" r="15" fill="#C4C4C4" />
+                        <line x1="14.5" y1="7" x2="14.5" y2="23" stroke="#444444" />
+                        <line x1="15.5" y1="7" x2="15.5" y2="23" stroke="#444444" />
+                        <line x1="7" y1="14.5" x2="23" y2="14.5" stroke="#444444" />
+                        <line x1="7" y1="15.5" x2="23" y2="15.5" stroke="#444444" />
+                    </svg>
+
+                    <input type="text" name="msginpt" id="msginpt" placeholder="Message @Name" v-model="msginpt">
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script src="https://unpkg.com/vue@next"></script>
+<script src="/javascript/chat.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+
+</html>

@@ -1,0 +1,195 @@
+html
+	height: 100%
+body
+	background: #353535
+	display: flex
+	flex-direction: column
+	margin: 0
+	height: 100%
+#sidebar
+	background: #292929
+	width: 17.5%
+	// height: calc(100vh -68px)
+	height: 100%
+	display: flex
+	flex-direction: column
+#topbar
+	background: #444444
+	min-height: 68px
+	border-bottom: 8px solid #323232
+	width: 100%
+
+.mainbody
+	height: calc(100% - 76px)
+	display: flex
+	flex-direction: row
+
+.sidebarmenu
+	display: flex
+	flex-direction: row
+	width: 100%
+	margin-top: auto
+	// align-self: flex-end
+	height: 7.5%
+	background-color: #1b1b1b
+
+	& > img
+		// width: 85%
+		padding: 10px
+		margin-bottom: 2.5px
+		border-radius: 50%
+
+	& > .username
+		font-family: Roboto
+		font-style: normal
+		font-weight: normal
+		font-size: 24px
+		line-height: 19px
+		display: flex
+		align-items: center
+		color: #FFFFFF
+
+.sidebar_search
+	margin: 5% auto
+	padding: 7.5px
+	width: 85%
+	background: #353535
+	border-radius: 6px
+	border: 0
+	font-family: Roboto
+	font-style: normal
+	font-weight: normal
+	font-size: 14px
+	line-height: 16px
+	text-align: center
+	color: #d9d9d9
+
+#recentchats
+	display: flex
+	// height: calc(100% - (5% + (7.5px * 2) + 7.5%))
+	flex-direction: column
+
+.sidebar-chat-item
+	display: flex
+	flex-direction: row
+	width: 85%
+	padding: 10px
+	margin: 2px auto
+	transition: background-color 200ms ease-in-out
+
+	&:hover
+		background: #353535
+		border-radius: 6px
+	& > img
+
+		border-radius: 50%
+		width: 32px
+		height: 32px
+		margin: auto 0
+	& > p
+
+		font-family: Roboto
+		font-style: normal
+		font-weight: normal
+		font-size: 18px
+		line-height: 21px
+		text-align: center
+		color: #d9d9d9
+		padding-left: 15px
+		margin: auto 0
+	& > i
+		color: #d9d9d9
+		margin: auto
+		margin-right: 0
+		opacity: 0
+		transition: opacity 200ms ease-in-out
+
+.mainchat
+	width: 82.5%
+	height: 100%
+	& > .chatwindow
+		overflow: auto
+		height: 92.5%
+		display: flex
+		flex-direction: column
+
+		& > div > h1
+			margin-top: 0
+
+	& > .chatinpt
+		height: 7.5%
+
+		& > form
+			display: flex
+			background: #444444
+			border-radius: 6px
+			margin: 0 25px
+			height: calc(100% - 25px)
+
+			& > svg
+				height: calc(75% - 10px)
+				// width: %
+				margin: auto 10px
+
+			& > input
+				width: 100%
+				background: #444444
+				border-radius: 6px
+				border: none
+				font-family: Roboto
+				font-style: normal
+				font-weight: normal
+				font-size: 16px
+				line-height: 21px
+				display: flex
+				align-items: center
+
+				color: #FFFFFF
+
+.message
+	display: flex
+	min-height: 50px
+	margin: 10px 5px 0
+	& > img
+		width: 40px
+		height: 40px
+		padding: 10px
+		margin: auto 0
+		border-radius: 50%
+
+	& > div
+		display: flex
+		flex-direction: column
+		margin: auto 0 0
+
+		& > .msgname
+			font-family: Roboto
+			font-style: normal
+			font-weight: bold
+			font-size: 18px
+			line-height: 23px
+			color: #FFFFFF
+			margin: 0
+
+.msg
+	font-family: Roboto
+	font-style: normal
+	font-weight: normal
+	font-size: 16px
+	line-height: 21px
+	color: #FFFFFF
+	margin: 0
+
+.trailingmsg
+	display: flex
+	// min-height: 50px
+	margin: 0 5px
+	& > div
+		display: flex
+		flex-direction: row
+		margin: auto 0
+		& > div
+			min-width: 40px
+			padding: 10px
+			margin: auto 0
+			border-radius: 50%
